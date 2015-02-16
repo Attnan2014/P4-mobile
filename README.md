@@ -32,3 +32,4 @@ Resources Used
 •	Webreference Javascript Optimization Tips
 •	https://developers.google.com/speed/pagespeed/insights_extensions
 •	https://developers.google.com/speed/docs/insights/rules
+
