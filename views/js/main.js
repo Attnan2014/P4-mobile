@@ -499,20 +499,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
-// Moves the sliding background pizzas based on scroll position
-
-var lastKnownScrollY = 0;
-function onScroll() {
-	lastKnownScrollY = window.scrollY;
-}
-
+// Removed unnecessary function requestAnimationFrame & unused variable currentScrollY
+//function onScroll() {
+//	lastKnownScrollY = window.scrollY;
+//}
 function updatePositions() {
-  requestAnimationFrame(updatePositions);
-
+  //requestAnimationFrame(updatePositions);
   frame++;
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+ //move scroll-position variable outside of loop 
   var scrollNumber = document.body.scrollTop / 1250;
 
   for (var i = 0, len = items.length; i < len; i++) {
@@ -528,10 +525,10 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-
 // runs updatePositions on scroll
-window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
+// Rewrote for loop for pizza sizes
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 6;
   var s = 400;
