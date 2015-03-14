@@ -531,9 +531,10 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
-// Rewrote for loop for pizza sizes
+// Reduced number of generated pizzas from 200 to 100
+// reduced the height from 100px to 73.333px
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 6;
+  var cols = 6; // reduced cols from 8 to 6
   var s = 400;
   for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
